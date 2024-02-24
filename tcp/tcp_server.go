@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	address = ":8080" // address by default - :80
+	address = ":8080" // address by default - :8080
 )
 
 // server Структура TCP сервера
