@@ -17,14 +17,15 @@ func main() {
 		address = arguments[1]
 	}
 
-	s, err := net.ResolveUDPAddr("udp4", address)
+	// Устанавливаем адрес для прослушивания
+	s, err := net.ResolveUDPAddr("udp", address)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	// Инициализируем UDP слушателя
-	connection, err := net.ListenUDP("udp4", s)
+	// Создаем соединение
+	connection, err := net.ListenUDP("udp", s)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -38,21 +39,26 @@ func main() {
 			return
 		}
 	}(connection)
-	buffer := make([]byte, 1024)
 
+	// Буфер для хранения данных
+	buffer := make([]byte, 1024)
 	for {
+		// Читаем сообщение
 		n, addr, err := connection.ReadFromUDP(buffer)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+		// Выводим сообщение
 		fmt.Print("-> ", string(buffer[0:n-1]))
 
-		_, err = connection.WriteToUDP(
+		// Отправляем время получения
+		_, _ = connection.WriteToUDP(
 			[]byte(
 				fmt.Sprintf("Message was received at UDP server at %s\n", time.Now().Format(time.DateTime)),
 			),
 			addr,
 		)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
 	}
 }
