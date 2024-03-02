@@ -2,3 +2,6 @@
 .DS_Store
 
 mqtt/data
+
+*.ts
+*.m3u8
