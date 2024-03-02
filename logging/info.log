@@ -1,0 +1,10 @@
+# Default logger
+2024/03/02 17:38:44.315523 default_logger.go:20: Logging to a file in Go!
+
+# Logrus logger
+{"level":"warning","msg":"Some Logging Message 1","requestId":"dcd00bd7-d010-4438-a27d-22017c99caac","spanId":"b75bfb74-658a-4e40-9b0b-3b0fd00b3f22","time":"2024-03-02T20:38:53+03:00"}
+{"level":"warning","msg":"Some Logging Message 2","time":"2024-03-02T20:38:53+03:00"}
+
+# Zap logger
+{"level":"info","timestamp":"2024-03-02T20:39:01.353+0300","msg":"Some Logging Message 1","service":"Logger App","spanId":"c27d39ad-b5fb-4d5c-8e92-d4f670dc6097","requestId":"98f5fc92-a715-4d78-b407-8204d972e192"}
+{"level":"info","timestamp":"2024-03-02T20:39:01.354+0300","msg":"Some Logging Message 2","service":"Logger App"}
