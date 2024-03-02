@@ -25,4 +25,5 @@ go run hls/main.go
 ```
 
 ## Resources
+ - https://www.cdnvideo.ru/blog/protokoly_dlya_striminga/
  - https://habr.com/ru/companies/odnoklassniki/articles/467669/
