@@ -31,8 +31,8 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	mux.Handle(mainPath, addHeaders(playerServer))
-	mux.Handle(storagePath, addHeaders(storageServer))
+	mux.Handle(mainPath, addHeaders(http.StripPrefix(mainPath, playerServer)))
+	mux.Handle(storagePath, addHeaders(http.StripPrefix(storagePath, storageServer)))
 
 	stopped := make(chan struct{})
 	go func() {
