@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  todo-db:
+    container_name: todo-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: todo-user
+      POSTGRES_PASSWORD: todo-pass
+      POSTGRES_DB: todo
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5432:5432'
